@@ -20,6 +20,7 @@ export class App extends Component {
   handleFilterInput = value => {
     this.setState({ filter: value });
   };
+
   addNewContact = newContact => {
     const { contacts } = this.state;
     const checkContact = contacts.find(

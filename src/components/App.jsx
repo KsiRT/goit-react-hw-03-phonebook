@@ -53,20 +53,16 @@ export class App extends Component {
     );
   };
   componentDidMount() {
-    console.log('Component did mount!');
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-
-    console.log(parsedContacts);
-    this.setState({ contacts: parsedContacts });
+    if (parsedContacts?.length) {
+      this.setState({ contacts: parsedContacts });
+    }
   }
 
   //  Записываем контакты из состояния в локал сторедж
   componentDidUpdate(prevProps, prevState) {
-    console.log('Component updated');
-
     if (this.state.contacts !== prevState.contacts) {
-      console.log('Contacts were updated');
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }

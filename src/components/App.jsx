@@ -53,7 +53,7 @@ export class App extends Component {
     );
   };
   componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
+    const contacts = localStorage.getItem('contacts1');
     const parsedContacts = JSON.parse(contacts);
     if (parsedContacts?.length) {
       this.setState({ contacts: parsedContacts });
@@ -63,7 +63,7 @@ export class App extends Component {
   //  Записываем контакты из состояния в локал сторедж
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+      localStorage.setItem('contacts1', JSON.stringify(this.state.contacts));
     }
   }
 
